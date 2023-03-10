@@ -46,7 +46,15 @@ if image_file is not None:
     with col1:
         st.image(img, caption='Uploaded Image', use_column_width='always')
         
-        with open(image_file.name, mode="wb") as f:
+        imgpath = image_file.name
+        #imgpath = os.path.join('Personal-Protective-Equipment---Combined-Model-4/valid/images', image_file.name)
+        st.write('this is name', image_file.name)
+        st.write('this is imgpath', imgpath)
+
+        #outputpath = os.path.join('data/outputs', os.path.basename(imgpath))
+        outputpath = os.path.basename(imgpath)
+        st.write('this is outputpath', outputpath)
+        with open(imgpath, mode="wb") as f:
             f.write(image_file.getbuffer())
 
         #call Model prediction--
@@ -54,15 +62,15 @@ if image_file is not None:
         model.names = new_names
         #model.conf = 0.7
         #model.cuda() if device == 'cuda' else model.cpu()
-        #model.cpu()
-        pred = model(image_file.name)
+        model.cpu()
+        pred = model(imgpath)
         pred.render()  # render bbox in image
         for im in pred.ims:
             im_base64 = Image.fromarray(im)
-            im_base64.save(image_file.name)
+            im_base64.save(outputpath)
 
             #--Display predicton
             
-        img_ = Image.open(image_file.name)
+        img_ = Image.open(outputpath)
         with col2:
             st.image(img_, caption='Model Prediction(s)', use_column_width='always')
