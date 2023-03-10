@@ -59,3 +59,14 @@ scipy>=1.4.1
 thop>=0.1.1
 torchvision>=0.8.1
 tqdm>=4.64.0
+coremltools>=6.0
+onnx>=1.12.0
+onnx-simplifier>=0.4.1
+nvidia-pyindex
+nvidia-tensorrt
+scikit-learn<=1.1.2
+tensorflow>=2.4.1
+tensorflowjs>=3.9.0
+openvino-dev
+setuptools>=65.5.1
+tritonclient[all]~=2.24.0
