@@ -54,7 +54,7 @@ if image_file is not None:
         model.names = new_names
         #model.conf = 0.7
         #model.cuda() if device == 'cuda' else model.cpu()
-        #model.cpu()
+        model.cpu()
         pred = model(image_file.name)
         pred.render()  # render bbox in image
         for im in pred.ims:
