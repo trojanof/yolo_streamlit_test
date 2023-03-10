@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 from PIL import Image
-import matplotlib.pyplot as plt
+
 import torch
 import torch.nn as nn
 from datetime import datetime
