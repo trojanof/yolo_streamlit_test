@@ -63,6 +63,6 @@ if image_file is not None:
 
             #--Display predicton
             
-        img_ = Image.open('detected.jpg')
+        img_ = Image.open(image_file.name)
         with col2:
             st.image(img_, caption='Model Prediction(s)', use_column_width='always')
