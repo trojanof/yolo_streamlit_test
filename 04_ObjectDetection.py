@@ -46,12 +46,6 @@ if image_file is not None:
     with col1:
         st.image(img, caption='Uploaded Image', use_column_width='always')
         
-        imgpath = image_file.name
-        
-
-        #outputpath = os.path.join('data/outputs', os.path.basename(imgpath))
-        outputpath = os.path.basename(imgpath)
-        st.write('this is outputpath', outputpath)
         with open(image_file.name, mode="wb") as f:
             f.write(image_file.getbuffer())
 
@@ -60,15 +54,15 @@ if image_file is not None:
         model.names = new_names
         #model.conf = 0.7
         #model.cuda() if device == 'cuda' else model.cpu()
-        model.cpu()
+        #model.cpu()
         pred = model(image_file.name)
         pred.render()  # render bbox in image
         for im in pred.ims:
             im_base64 = Image.fromarray(im)
-            im_base64.save(image_file.name)
+            im_base64.save('detected.jpg')
 
             #--Display predicton
             
-        img_ = Image.open(image_file.name)
+        img_ = Image.open('detected.jpg')
         with col2:
             st.image(img_, caption='Model Prediction(s)', use_column_width='always')
