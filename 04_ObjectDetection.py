@@ -46,12 +46,14 @@ if image_file is not None:
     with col1:
         st.image(img, caption='Uploaded Image', use_column_width='always')
         ts = datetime.timestamp(datetime.now())
-        #imgpath = os.path.join('data/uploads', str(ts)+image_file.name)
-        imgpath = os.path.join('Personal-Protective-Equipment---Combined-Model-4/valid/images', image_file.name)
-        #st.write('this is name', image_file.name)
+        imgpath = os.path.join('data/uploads', str(ts)+image_file.name)
+        #imgpath = os.path.join('Personal-Protective-Equipment---Combined-Model-4/valid/images', image_file.name)
+        st.write('this is name', image_file.name)
+        st.write('this is imgpath', imgpath)
 
-        #outputpath = os.path.join('data/outputs', os.path.basename(imgpath))
-        outputpath = os.path.basename(imgpath)
+        outputpath = os.path.join('data/outputs', os.path.basename(imgpath))
+        #outputpath = os.path.basename(imgpath)
+        st.write('this is outputpath', outputpath)
         with open(imgpath, mode="wb") as f:
             f.write(image_file.getbuffer())
 
