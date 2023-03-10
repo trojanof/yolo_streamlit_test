@@ -52,8 +52,8 @@ if image_file is not None:
         st.write('this is name', image_file.name)
         st.write('this is imgpath', imgpath)
 
-        outputpath = os.path.join('data/outputs', os.path.basename(imgpath))
-        #outputpath = os.path.basename(imgpath)
+        #outputpath = os.path.join('data/outputs', os.path.basename(imgpath))
+        outputpath = os.path.basename(imgpath)
         st.write('this is outputpath', outputpath)
         with open(imgpath, mode="wb") as f:
             f.write(image_file.getbuffer())
